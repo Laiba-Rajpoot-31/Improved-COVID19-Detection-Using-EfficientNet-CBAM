@@ -1,4 +1,4 @@
-# COVID-19 Detection from Lung CT-Scans (Assignment 3)
+# COVID-19 Detection from Lung CT-Scans 
 
 ## Overview
 This repository contains the improved implementation for **Assignment 3**, building upon the base paper *"COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble" (Kundu et al., 2021)*.
