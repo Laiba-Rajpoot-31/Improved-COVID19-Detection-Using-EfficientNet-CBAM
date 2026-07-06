@@ -62,7 +62,7 @@ COVID19-CTScan/
 
 └── README.md
 ```
- Dataset
+# Dataset
 
 This project uses the **SARS-CoV-2 CT-Scan Dataset**.
 
