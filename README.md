@@ -1,6 +1,6 @@
 # Improved COVID-19 Detection from Lung CT-Scans using EfficientNet-B3, CBAM Attention Module and Sugeno Fuzzy Integral
 
-## 📌 Overview
+##  Overview
 
 This project presents an improved deep learning framework for COVID-19 detection from Lung CT-Scan images.
 
@@ -10,9 +10,7 @@ The implementation is based on the research paper:
 
 Instead of redesigning the complete system, this project enhances the original architecture by replacing the conventional CNN backbone with **EfficientNet-B3** and integrating the **Convolutional Block Attention Module (CBAM)** while preserving the **Sugeno Fuzzy Integral** for decision fusion.
 
----
-
-## 🚀 Features
+Features
 
 - EfficientNet-B3 Backbone
 - CBAM Attention Module
@@ -26,11 +24,8 @@ Instead of redesigning the complete system, this project enhances the original a
 - Prediction Script
 - Google Colab Compatible
 
----
+#  Project Structure
 
-# 📂 Project Structure
-
-```
 COVID19-CTScan/
 
 │── dataset/
@@ -77,7 +72,7 @@ https://www.kaggle.com/datasets/plameneduardo/sarscov2-ctscan-dataset
 
 If this dataset becomes unavailable, use the dataset recommended in the original research paper.
 
-Dataset Structure
+# Dataset Structure
 
 ```
 dataset/
@@ -86,7 +81,7 @@ dataset/
 
     Non-COVID/
 ```
- 📄 Original Research Paper
+# Original Research Paper
 
 **Title**
 
@@ -96,9 +91,7 @@ Download Paper
 
 https://www.sciencedirect.com/science/article/pii/S001048252100214X
 
----
-
-# 📚 Research Citation
+# Research Citation
 
 R. Kundu, P. K. Singh, S. Mirjalili, and R. Sarkar,
 
@@ -110,43 +103,31 @@ Volume 138,
 
 2021.
 
----
-
-# ⚙ Installation
+# Installation
 
 Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/Laiba-Rajpoot-31/Improved-COVID19-Detection-Using-EfficientNet-CBAM.git
 
-cd YOUR_REPOSITORY
+cd Improved-COVID19-Detection-Using-EfficientNet-CBAM
 ```
-
 Install Requirements
 
 ```bash
 pip install -r requirements.txt
 ```
-
----
-
-# ▶ Training
+#  Training
 
 ```bash
 python train.py
 ```
-
----
-
-# 🧪 Testing
+#  Testing
 
 ```bash
 python test.py
 ```
-
----
-
-# 🔍 Prediction
+#  Prediction
 
 ```bash
 python predict.py image.png
@@ -159,10 +140,7 @@ Prediction : COVID
 
 Confidence : 99.47%
 ```
-
----
-
-# 📈 Generated Results
+#  Generated Results
 
 The project automatically generates:
 
@@ -181,10 +159,7 @@ All outputs are saved inside
 ```
 results/
 ```
-
----
-
-# 🧠 Proposed Architecture
+#  Proposed Architecture
 
 ```
 Input CT Images
@@ -226,9 +201,7 @@ Softmax
 COVID / Non-COVID
 ```
 
----
-
-# 🛠 Technologies Used
+#  Technologies Used
 
 - Python
 - PyTorch
@@ -239,9 +212,7 @@ COVID / Non-COVID
 - Matplotlib
 - Scikit-learn
 
----
-
-# 📑 References
+#  References
 
 1. Kundu R., Singh P.K., Mirjalili S., Sarkar R.
 
@@ -261,9 +232,8 @@ CBAM: Convolutional Block Attention Module.
 
 ECCV, 2018.
 
----
 
-# 👩‍💻 Author
+#  Author
 
 Laiba Mubashar
 
@@ -271,8 +241,7 @@ BS Data Science
 
 Gift University, Gujranwala
 
----
 
-# 📜 License
+#  License
 
 This project is developed for educational and research purposes.
