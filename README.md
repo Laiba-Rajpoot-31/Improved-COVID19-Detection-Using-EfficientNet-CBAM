@@ -1,61 +1,284 @@
-# COVID-19 Detection from Lung CT-Scans 
+# Improved COVID-19 Detection from Lung CT-Scans using EfficientNet-B3, CBAM Attention Module and Sugeno Fuzzy Integral
 
-## Overview
-This repository contains the improved implementation for **Assignment**, building upon the base paper *"COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble" (Kundu et al., 2021)*.
+## 📌 Overview
 
-The core contribution of the original paper—the **Sugeno Fuzzy Integral**—is preserved for fusing probability predictions. However, the legacy multi-CNN backbone has been entirely replaced with a far more robust, single-architecture ensemble using **EfficientNet-B3** coupled with a **Convolutional Block Attention Module (CBAM)**.
+This project presents an improved deep learning framework for COVID-19 detection from Lung CT-Scan images.
 
-### Improvements Made:
-1. **Backbone Replacement**: Replaced VGG-11, GoogLeNet, SqueezeNet, and WideResNet with **EfficientNet-B3**.
-2. **Attention Mechanism**: Added a **CBAM** (Channel & Spatial Attention) after EfficientNet-B3 to heavily focus on relevant GGO (Ground-Glass Opacity) features in the lungs.
-3. **Data Augmentation**: Added a strict augmentation pipeline (Resize, Random Horizontal Flip, Random Rotation, Brightness, Contrast, Crop, Affine).
-4. **Optimization Pipeline**: Switched to the `Adam` optimizer (LR: 0.0001) with a `ReduceLROnPlateau` scheduler and `EarlyStopping`.
-5. **Automated Evaluation**: Code automatically generates Training/Validation Accuracy and Loss graphs, ROC Curves, Confusion Matrices, Classification Reports, and a final Prediction CSV.
+The implementation is based on the research paper:
 
-## Project Structure
-- `dataset.py`: PyTorch dataset handling with all required data augmentations.
-- `cbam.py`: Implementation of Channel and Spatial Attention logic.
-- `efficientnet_cbam.py`: The newly proposed architecture combining EfficientNet-B3 and CBAM.
-- `sugeno.py`: The Sugeno Fuzzy Integral mathematical logic.
-- `utils.py`: Contains Early Stopping, plotting (Loss/Acc/ROC), metric calculations, and Hardware printing.
-- `train.py`: Trains an ensemble of models using different random seeds for diversity.
-- `test.py`: Loads the models, evaluates them, applies Softmax, performs the Sugeno fusion, and saves results.
-- `predict.py`: Standalone CLI to run inference on a single image.
+**COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble**
 
-## How to Run in Google Colab
+Instead of redesigning the complete system, this project enhances the original architecture by replacing the conventional CNN backbone with **EfficientNet-B3** and integrating the **Convolutional Block Attention Module (CBAM)** while preserving the **Sugeno Fuzzy Integral** for decision fusion.
 
-### 1. Setup Environment
-Clone the repository and install the dependencies:
+---
+
+## 🚀 Features
+
+- EfficientNet-B3 Backbone
+- CBAM Attention Module
+- Sugeno Fuzzy Integral Fusion
+- Transfer Learning
+- Data Augmentation
+- Training & Validation Pipeline
+- Confusion Matrix
+- ROC Curve
+- Classification Report
+- Prediction Script
+- Google Colab Compatible
+
+---
+
+# 📂 Project Structure
+
+```
+COVID19-CTScan/
+
+│── dataset/
+
+│ ├── COVID/
+
+│ └── Non-COVID/
+
+│
+
+├── models/
+
+│ ├── cbam.py
+
+│ ├── efficientnet_cbam.py
+
+│ └── sugeno.py
+
+│
+
+├── train.py
+
+├── test.py
+
+├── predict.py
+
+├── dataset.py
+
+├── utils.py
+
+├── config.py
+
+├── requirements.txt
+
+└── README.md
+```
+
+---
+
+# 📊 Dataset
+
+This project uses the **SARS-CoV-2 CT-Scan Dataset**.
+
+### Kaggle Dataset
+
+https://www.kaggle.com/datasets/plameneduardo/sarscov2-ctscan-dataset
+
+If this dataset becomes unavailable, use the dataset recommended in the original research paper.
+
+Dataset Structure
+
+```
+dataset/
+
+    COVID/
+
+    Non-COVID/
+```
+
+---
+
+# 📄 Original Research Paper
+
+**Title**
+
+COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble
+
+Download Paper
+
+https://www.sciencedirect.com/science/article/pii/S001048252100214X
+
+---
+
+# 📚 Research Citation
+
+R. Kundu, P. K. Singh, S. Mirjalili, and R. Sarkar,
+
+"COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble,"
+
+Computers in Biology and Medicine,
+
+Volume 138,
+
+2021.
+
+---
+
+# ⚙ Installation
+
+Clone Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+
+cd YOUR_REPOSITORY
+```
+
+Install Requirements
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Dataset Preparation
-Ensure the SARS-CoV-2 CT Scan Dataset is extracted and structured exactly like this:
-```text
-data/
-├── train/
-│   ├── COVID/
-│   └── Non-COVID/
-└── val/
-    ├── COVID/
-    └── Non-COVID/
+---
+
+# ▶ Training
+
+```bash
+python train.py
 ```
 
-### 3. Training the Ensemble
-Run `train.py` to train the ensemble models (uses 4 random seeds by default). The results and models will automatically be saved into a `results/` folder.
+---
+
+# 🧪 Testing
+
 ```bash
-python train.py --data_dir data/ --epochs 50 --batch_size 32
+python test.py
 ```
 
-### 4. Testing and Evaluation
-Run `test.py` to load the ensemble, apply the Sugeno Fuzzy Integral fusion, and generate the final outputs (Graphs, CSVs, Metrics Report).
+---
+
+# 🔍 Prediction
+
 ```bash
-python test.py --data_dir data/ --models_dir results/ --results_dir results/
+python predict.py image.png
 ```
 
-### 5. Single Image Prediction
-To predict a single CT scan image:
-```bash
-python predict.py "data/val/COVID/some_image.png" --models_dir results/
+Example Output
+
 ```
+Prediction : COVID
+
+Confidence : 99.47%
+```
+
+---
+
+# 📈 Generated Results
+
+The project automatically generates:
+
+- Training Accuracy
+- Validation Accuracy
+- Training Loss
+- Validation Loss
+- ROC Curve
+- Confusion Matrix
+- Classification Report
+- Prediction CSV
+- Best Model (.pth)
+
+All outputs are saved inside
+
+```
+results/
+```
+
+---
+
+# 🧠 Proposed Architecture
+
+```
+Input CT Images
+
+↓
+
+Image Preprocessing
+
+↓
+
+Data Augmentation
+
+↓
+
+EfficientNet-B3
+
+↓
+
+CBAM Attention Module
+
+↓
+
+Global Average Pooling
+
+↓
+
+Fully Connected Layer
+
+↓
+
+Sugeno Fuzzy Integral
+
+↓
+
+Softmax
+
+↓
+
+COVID / Non-COVID
+```
+
+---
+
+# 🛠 Technologies Used
+
+- Python
+- PyTorch
+- Torchvision
+- NumPy
+- Pandas
+- OpenCV
+- Matplotlib
+- Scikit-learn
+
+---
+
+# 📑 References
+
+1. Kundu R., Singh P.K., Mirjalili S., Sarkar R.
+
+COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble.
+
+Computers in Biology and Medicine, 2021.
+
+2. Tan M., Le Q.
+
+EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks.
+
+ICML, 2019.
+
+3. Woo S., Park J., Lee J., Kweon I.
+
+CBAM: Convolutional Block Attention Module.
+
+ECCV, 2018.
+
+---
+
+# 👩‍💻 Author
+
+Laiba Mubashar
+
+BS Data Science
+
+Gift University, Gujranwala
+
+---
+
+# 📜 License
+
+This project is developed for educational and research purposes.
