@@ -1,81 +1,67 @@
 # Improved COVID-19 Detection from Lung CT-Scans using EfficientNet-B3, CBAM Attention Module and Sugeno Fuzzy Integral
 
-##  Overview
+## Overview
 
-This project presents an improved deep learning framework for COVID-19 detection from Lung CT-Scan images.
+This project presents an improved deep learning framework for the automatic detection of COVID-19 from lung CT scan images. The work extends the research paper **"COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble"** by enhancing its feature extraction capability while preserving the original decision fusion strategy.
 
-The implementation is based on the research paper:
+The proposed model replaces the conventional convolutional neural network (CNN) backbone with **EfficientNet-B3** and integrates the **Convolutional Block Attention Module (CBAM)** to improve feature representation and focus on clinically significant regions of the CT images. The **Sugeno Fuzzy Integral** is retained as the decision fusion mechanism to maintain consistency with the original research while improving overall classification performance.
 
-**COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble**
+This project has been developed for academic and research purposes as part of a Bachelor's degree in Data Science.
 
-Instead of redesigning the complete system, this project enhances the original architecture by replacing the conventional CNN backbone with **EfficientNet-B3** and integrating the **Convolutional Block Attention Module (CBAM)** while preserving the **Sugeno Fuzzy Integral** for decision fusion.
+---
 
-Features
+## Key Features
 
-- EfficientNet-B3 Backbone
-- CBAM Attention Module
-- Sugeno Fuzzy Integral Fusion
+- EfficientNet-B3 as the backbone feature extractor
+- Convolutional Block Attention Module (CBAM)
+- Sugeno Fuzzy Integral for decision fusion
 - Transfer Learning
-- Data Augmentation
-- Training & Validation Pipeline
-- Confusion Matrix
-- ROC Curve
-- Classification Report
-- Prediction Script
-- Google Colab Compatible
+- Image preprocessing and data augmentation
+- Training and validation pipeline
+- Confusion matrix and ROC curve generation
+- Classification report and evaluation metrics
+- Single-image prediction support
+- Google Colab compatible implementation
 
-#  Project Structure
+---
 
+# Project Structure
+
+```text
 COVID19-CTScan/
 
 │── dataset/
-
-│ ├── COVID/
-
-│ └── Non-COVID/
-
-│
+│   ├── COVID/
+│   └── Non-COVID/
 
 ├── models/
-
-│ ├── cbam.py
-
-│ ├── efficientnet_cbam.py
-
-│ └── sugeno.py
-
-│
+│   ├── cbam.py
+│   ├── efficientnet_cbam.py
+│   └── sugeno.py
 
 ├── train.py
-
 ├── test.py
-
 ├── predict.py
-
 ├── dataset.py
-
 ├── utils.py
-
 ├── config.py
-
 ├── requirements.txt
-
 └── README.md
 ```
-```
+
+---
+
 # Dataset
 
-This project uses the **SARS-CoV-2 CT-Scan Dataset**.
+This implementation uses the **SARS-CoV-2 CT-Scan Dataset**, which was also employed in the original research paper to ensure a fair comparison between the reproduced and the proposed models.
 
-### Kaggle Dataset
+**Kaggle Dataset**
 
 https://www.kaggle.com/datasets/plameneduardo/sarscov2-ctscan-dataset
 
-If this dataset becomes unavailable, use the dataset recommended in the original research paper.
+After downloading the dataset, organize it using the following directory structure:
 
-# Dataset Structure
-
-```
+```text
 dataset/
 
     COVID/
@@ -83,129 +69,119 @@ dataset/
     Non-COVID/
 ```
 
-```
+---
+
 # Original Research Paper
 
 **Title**
 
 COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble
 
-Download Paper
+**Download Paper**
 
 https://www.sciencedirect.com/science/article/pii/S001048252100214X
 
-```
+---
+
 # Research Citation
 
-R. Kundu, P. K. Singh, S. Mirjalili, and R. Sarkar,
+Kundu, R., Singh, P. K., Mirjalili, S., & Sarkar, R.
 
-"COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble,"
+*COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble.*
 
-Computers in Biology and Medicine,
+Computers in Biology and Medicine, Volume 138, 2021.
 
-Volume 138,
+---
 
-2021.
-```
 # Installation
 
-Clone Repository
+Clone the repository.
 
 ```bash
-git clone https://github.com/Laiba-Rajpoot-31/Improved-COVID19-Detection-Using-EfficientNet-CBAM.git
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
 
-cd Improved-COVID19-Detection-Using-EfficientNet-CBAM
+cd YOUR_REPOSITORY
 ```
-Install Requirements
+
+Install the required dependencies.
 
 ```bash
 pip install -r requirements.txt
 ```
-#  Training
+
+---
+
+# Training
+
+Run the following command to train the proposed model.
 
 ```bash
 python train.py
 ```
-#  Testing
+
+---
+
+# Testing
+
+Evaluate the trained model using the test dataset.
 
 ```bash
 python test.py
 ```
-#  Prediction
+
+---
+
+# Prediction
+
+Predict the class of a single CT scan image.
 
 ```bash
 python predict.py image.png
 ```
 
-Example Output
+Example output:
 
-```
+```text
 Prediction : COVID
 
 Confidence : 99.47%
 ```
-#  Generated Results
 
-The project automatically generates:
+---
 
-- Training Accuracy
-- Validation Accuracy
-- Training Loss
-- Validation Loss
-- ROC Curve
+# Generated Results
+
+After training and evaluation, the framework automatically generates and stores the following outputs inside the **results/** directory:
+
+- Training Accuracy Curve
+- Validation Accuracy Curve
+- Training Loss Curve
+- Validation Loss Curve
 - Confusion Matrix
+- ROC Curve
 - Classification Report
-- Prediction CSV
-- Best Model (.pth)
+- Prediction CSV File
+- Best Trained Model (.pth)
 
-All outputs are saved inside
-
-```
+```text
 results/
 ```
-#  Proposed Architecture
 
-```
-Input CT Images
+---
 
-↓
+# Proposed Architecture
 
-Image Preprocessing
+The proposed framework follows the pipeline shown below.
 
-↓
+<p align="center">
+  <img src="images/proposed_architecture.png" alt="Proposed Architecture" width="100%">
+</p>
 
-Data Augmentation
+The workflow begins with CT scan image preprocessing and data augmentation. Features are extracted using EfficientNet-B3 and refined through the CBAM attention module. The resulting feature maps are processed using global average pooling and a fully connected layer to generate class probabilities. Finally, the Sugeno Fuzzy Integral combines the predictions to produce the final COVID or Non-COVID classification.
 
-↓
+---
 
-EfficientNet-B3
-
-↓
-
-CBAM Attention Module
-
-↓
-
-Global Average Pooling
-
-↓
-
-Fully Connected Layer
-
-↓
-
-Sugeno Fuzzy Integral
-
-↓
-
-Softmax
-
-↓
-
-COVID / Non-COVID
-```
-
-#  Technologies Used
+# Technologies Used
 
 - Python
 - PyTorch
@@ -216,36 +192,28 @@ COVID / Non-COVID
 - Matplotlib
 - Scikit-learn
 
-#  References
+---
 
-1. Kundu R., Singh P.K., Mirjalili S., Sarkar R.
+# References
 
-COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble.
+1. Kundu, R., Singh, P. K., Mirjalili, S., & Sarkar, R. *COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble.* Computers in Biology and Medicine, 2021.
 
-Computers in Biology and Medicine, 2021.
+2. Tan, M., & Le, Q. *EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks.* International Conference on Machine Learning (ICML), 2019.
 
-2. Tan M., Le Q.
+3. Woo, S., Park, J., Lee, J., & Kweon, I. *CBAM: Convolutional Block Attention Module.* European Conference on Computer Vision (ECCV), 2018.
 
-EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks.
+---
 
-ICML, 2019.
+# Author
 
-3. Woo S., Park J., Lee J., Kweon I.
+**Laiba Mubashar**
 
-CBAM: Convolutional Block Attention Module.
+Bachelor of Science in Data Science
 
-ECCV, 2018.
+Gift University, Gujranwala, Pakistan
 
+---
 
-#  Author
+# License
 
-Laiba Mubashar
-
-BS Data Science
-
-Gift University, Gujranwala
-
-
-#  License
-
-This project is developed for educational and research purposes.
+This project is developed solely for educational and research purposes. The implementation is based on the original research paper and is intended to demonstrate an improved deep learning framework for COVID-19 detection from lung CT scan images.
