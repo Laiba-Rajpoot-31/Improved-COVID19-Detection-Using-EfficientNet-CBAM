@@ -62,6 +62,7 @@ COVID19-CTScan/
 
 └── README.md
 ```
+```
 # Dataset
 
 This project uses the **SARS-CoV-2 CT-Scan Dataset**.
@@ -81,6 +82,7 @@ dataset/
 
     Non-COVID/
 ```
+```
 # Original Research Paper
 
 **Title**
@@ -90,7 +92,7 @@ COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble
 Download Paper
 
 https://www.sciencedirect.com/science/article/pii/S001048252100214X
-
+```
 # Research Citation
 
 R. Kundu, P. K. Singh, S. Mirjalili, and R. Sarkar,
@@ -102,7 +104,7 @@ Computers in Biology and Medicine,
 Volume 138,
 
 2021.
-
+```
 # Installation
 
 Clone Repository
