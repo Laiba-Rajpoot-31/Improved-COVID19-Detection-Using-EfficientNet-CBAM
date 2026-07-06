@@ -98,9 +98,9 @@ Computers in Biology and Medicine, Volume 138, 2021.
 Clone the repository.
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/Laiba-Rajpoot-31/Improved-COVID19-Detection-Using-EfficientNet-CBAM.git
 
-cd YOUR_REPOSITORY
+cd Improved-COVID19-Detection-Using-EfficientNet-CBAM
 ```
 
 Install the required dependencies.
@@ -166,20 +166,6 @@ After training and evaluation, the framework automatically generates and stores 
 ```text
 results/
 ```
-
----
-
-# Proposed Architecture
-
-The proposed framework follows the pipeline shown below.
-
-<p align="center">
-  <img src="images/proposed_architecture.png" alt="Proposed Architecture" width="100%">
-</p>
-
-The workflow begins with CT scan image preprocessing and data augmentation. Features are extracted using EfficientNet-B3 and refined through the CBAM attention module. The resulting feature maps are processed using global average pooling and a fully connected layer to generate class probabilities. Finally, the Sugeno Fuzzy Integral combines the predictions to produce the final COVID or Non-COVID classification.
-
----
 
 # Technologies Used
 
