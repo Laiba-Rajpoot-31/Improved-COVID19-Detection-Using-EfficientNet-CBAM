@@ -82,6 +82,7 @@ dataset/
 
     Non-COVID/
 ```
+
 ```
 # Original Research Paper
 
@@ -92,6 +93,7 @@ COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble
 Download Paper
 
 https://www.sciencedirect.com/science/article/pii/S001048252100214X
+
 ```
 # Research Citation
 
