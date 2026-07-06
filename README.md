@@ -1,7 +1,7 @@
 # COVID-19 Detection from Lung CT-Scans 
 
 ## Overview
-This repository contains the improved implementation for **Assignment 3**, building upon the base paper *"COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble" (Kundu et al., 2021)*.
+This repository contains the improved implementation for **Assignment**, building upon the base paper *"COVID-19 Detection from Lung CT-Scans using a Fuzzy Integral-Based CNN Ensemble" (Kundu et al., 2021)*.
 
 The core contribution of the original paper—the **Sugeno Fuzzy Integral**—is preserved for fusing probability predictions. However, the legacy multi-CNN backbone has been entirely replaced with a far more robust, single-architecture ensemble using **EfficientNet-B3** coupled with a **Convolutional Block Attention Module (CBAM)**.
 
